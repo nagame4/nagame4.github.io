@@ -1,0 +1,107 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+    String errorMsg = (String)request.getAttribute("errorMsg");
+--%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+</head>
+	
+<body>
+<style>
+*{
+	box-sizing:border-box;
+	max-width: 100%;
+	height: auto;
+	text-align: center;
+	color:#30583B;
+}
+
+boby{
+	margin: 0 0 0 0;
+}
+
+
+			/* ヘッダー　Fruitparlor Bee */
+	.shopb{
+		font-family:'Arial','ヒラギノ丸ゴ Pro W4','sans-serif';
+		font-size:80px;
+		text-align:center;
+		color:#FFFFFF;
+		background-repeat:no-repeat;
+		padding:200px 0;
+		background-image:url("images/welcom.jpg");
+		background-position:center;
+		background-size: cover;
+		width:100%;
+	}
+
+/* 見出し　商品一覧 */
+.midashi{
+	font-family:'Arial','ヒラギノ丸ゴ Pro W4','sans-serif';
+	text-align:center;
+	font-size:30px;
+}
+
+/* フッターのコピーライト */
+	h6{
+		margin-top:20px;
+		margin-bottom:0;
+		padding-top:75px;
+		padding-bottom:75px;
+		background-color:#2B6442;
+		color:#FFFFFF;
+		text-align:center;
+		
+	}
+	
+	div{
+		text-align:center;
+	}
+	
+			button {
+				border:		none;
+				background:	#FFFFFF;
+			}
+
+@media(max-width:767px){
+	}
+</style>
+		
+		<!--  ヘッダー Fruitparlor Bee　-->
+	<header>
+		<strong><div class = "shopb" >Fruitparlor Bee</div></strong>
+	</header>
+
+		<h1 class = "midashi">Fruitparlor Beeへようこそ</h1>
+
+		<form method="?" action="?">
+ 会 員 I D     : <input pattern="^[0-9A-Za-z]+$" title="半角英数字で入力してください" placeholder="半角英数字で入力してください" style="width: 200px; height: 30px; align= "center" name="user_id"><br>
+ <br>
+ パスワード: <input type="password" pattern="^[0-9A-Za-z]+$" placeholder="半角英数字で入力してください" style="width: 200px; height: 30px;" name="pass"><br>
+<br>
+
+			<center>
+				<button type="submit" name="method" formmethod="post" formaction="LoginServlet">
+					<image src="images/ログインボタン画像.jpg" alt="ログイン" width="180" height="70">
+				</button>
+				<button type="submit" name="method" formmethod="get" formaction="UserServlet">
+					<image src="images/会員登録ボタン画像.jpg" alt="会員登録" width="180" height="70">
+				</button>
+			</center>
+</form>
+
+<c:if test ="${not empty errorMsg}" >
+  <p>${errorMsg}</p>
+</c:if>
+
+<!--   フッター -->
+	<footer>
+			<h6>&copy; Fruitparlor Bee</h6>
+	</footer>
+</body>
+</html>
